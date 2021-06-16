@@ -1,4 +1,4 @@
-<mat-grid-list cols="2" rowHeight="100px">
+<mat-grid-list cols="1" rowHeight="100px">
     <mat-grid-tile>
         <mat-form-field appearance="fill">
             <mat-label>Choose Product</mat-label>
@@ -14,20 +14,22 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Units</mat-label>
-                <input matInput placeholder="Enter 1 or more" [formControl]="units">
+                <input matInput placeholder="Enter 1 or more" [formControl]="units" [value]="0">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Cartons</mat-label>
-                <input matInput placeholder="Enter 1 or more" [formControl]="cartons">
+                <input matInput placeholder="Enter 1 or more" [formControl]="cartons" [value]="0">
             </mat-form-field>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-button (click)=addToCart()>Add </button>
-        <button mat-button (click)=clearCart()>Clear </button>
-        <button mat-button (click)=getTotal()>Calculate Total </button>
+        <button class="button" mat-raised-button (click)=addToCart()>Add to Cart</button>
+        <button class="button" mat-raised-button (click)=clearCart()>Clear Cart</button>
+        <button class="button" mat-raised-button (click)=getTotal()>Calculate Total</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="labeldiv"><label class="label info">Total: {{total}} Rs.</label></div>
     </mat-grid-tile>
 </mat-grid-list>
-<div align="center"><label>Total: {{total}}</label></div>

@@ -39,6 +39,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   public addToCart(): void {
+
     if (this.selectedValue) {
       if (this.productsInCart) {
         this.productsInCart.forEach(element => {
@@ -65,25 +66,19 @@ export class CalculatorComponent implements OnInit {
         this.product.units = remainder;
         this.product.cartons = quotient;
       }
-
-      // console.log("units: " + this.product.units);
-      // console.log("cartons: " + this.product.cartons);
-    }
-    if (this.product.units == null) {
-      this.product.units = 0;
-      // this.product.cartons = this.cartons.value;
-      console.log("zero units");
     }
     this.productsInCart.push(this.product);
     console.log("units: " + this.product.units);
     console.log("cartons: " + this.product.cartons);
     console.log("added to cart" + this.productsInCart);
+    alert("Added to Cart");
   }
 
   public clearCart(): void {
     this.productsInCart = [];
     this.total = 0;
     console.log("cart cleared " + this.productsInCart);
+    alert("Cart Cleared");
   }
 
   public getTotal(): void {
