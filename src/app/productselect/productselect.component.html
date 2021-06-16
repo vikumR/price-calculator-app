@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill">
+    <mat-label>Choose Product</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="product">
+        <mat-option *ngFor="let product of products" [value]="product" (click)="setProduct()">
+            {{product.productName}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<app-producttable [dataSourceObj]="dataSource"></app-producttable>

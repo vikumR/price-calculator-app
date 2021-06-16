@@ -1,0 +1,33 @@
+<mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose Product</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="product">
+                <mat-option *ngFor="let product of products" [value]="product">
+                    {{product.productName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Units</mat-label>
+                <input matInput placeholder="Enter 1 or more" [formControl]="units">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Cartons</mat-label>
+                <input matInput placeholder="Enter 1 or more" [formControl]="cartons">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-button (click)=addToCart()>Add </button>
+        <button mat-button (click)=clearCart()>Clear </button>
+        <button mat-button (click)=getTotal()>Calculate Total </button>
+    </mat-grid-tile>
+</mat-grid-list>
+<div align="center"><label>Total: {{total}}</label></div>

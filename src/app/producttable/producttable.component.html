@@ -1,0 +1,36 @@
+<div class="example-container mat-elevation-z8">
+    <table mat-table [dataSource]="dataSourceObj" matSort multiTemplateDataRows>
+
+        <ng-container matColumnDef="cartons">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cartons </th>
+            <td mat-cell *matCellDef="let item">
+                {{item.cartons}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cartonPrice">
+            <th mat-header-cell *matHeaderCellDef> Carton Price </th>
+            <td mat-cell *matCellDef="let item">
+                {{item.cartonPrice}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="units">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Units </th>
+            <td mat-cell *matCellDef="let item">
+                {{item.units}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="unitPrice">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit Price</th>
+            <td mat-cell *matCellDef="let item">
+                {{item.unitPrice}}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"></tr>
+    </table>
+</div>
+<mat-paginator [pageSizeOptions]="[20, 10, 50]" showFirstLastButtons></mat-paginator>
